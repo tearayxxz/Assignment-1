@@ -20,6 +20,7 @@ namespace ConsoleApp1
         public string size;
         public string color;
         public float price;
+        public string image;
         public TShirt(string valuename, string valueColor, float valueid)
         {
             size = valuename;
@@ -88,6 +89,8 @@ namespace ConsoleApp1
             TShirt two = new TShirt(" M", "Black", 750);
             TShirt three = new TShirt(" S", "Black", 625);
             Address James = new Address(" 131/75", " Phutthamonthon road ,Nakhon Pathom", " 10180");
+
+            Console.WriteLine(" Quantity : {0} ", jame.Q);
 
             Totalcost.addList(one);
             Totalcost.addList(two);
