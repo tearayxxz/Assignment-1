@@ -8,11 +8,11 @@ namespace ConsoleApp1
         public string street;
         public string city;
         public string zipcode;
-        public Address(string valuename, string valueName, string ValueName)
+        public Address(string valuename, string valueName, string ValuenAme)
         {
             street = valuename;
             city = valueName;
-            zipcode = ValueName;
+            zipcode = ValuenAme;
         }
     }
     class TShirt
@@ -31,13 +31,14 @@ namespace ConsoleApp1
     {
         public string name;
         public string email;
-        public int shoppingCart;
-        public User(string valuename,string valueemail,int valuecart)
+        private int ShoppingCart;
+        public User(string valuename,string valueemail,int Quan)
         {
             name = valuename;
             email = valueemail;
-            shoppingCart = valuecart;
+            ShoppingCart = Quan;
         }
+        
     }
     class ShoppingCart
     {
@@ -49,18 +50,21 @@ namespace ConsoleApp1
             orderTShirt = new List<TShirt>();
             address = new List<Address>();
         }
+        public void addList(Address aDdress)
+        {
+            address.Add(aDdress);
+        }
         public void addList(TShirt tShirt)
         {
             orderTShirt.Add(tShirt);
         }
-
         public void getorder()
         {
             foreach (TShirt tShirt in orderTShirt)
             {
-                Console.WriteLine("Size : {0}",tShirt.size);
-                Console.WriteLine("Color : {0}", tShirt.color);
-                Console.WriteLine("Price : {0}", tShirt.price);
+                Console.WriteLine(" Size : {0}",tShirt.size);
+                Console.WriteLine(" Color : {0}", tShirt.color);
+                Console.WriteLine(" Price : {0}", tShirt.price);
             }
         }
     }
@@ -68,26 +72,28 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            User jame = new User("Jame Watson", "jame@gmail.com", 3);
+            User jame = new User("Jame Watson", "jame@gmail.com",3);
             ShoppingCart Totalcost = new ShoppingCart();
-            TShirt one = new TShirt("L", "Red", 500);
-            TShirt two = new TShirt("M", "Black", 750);
-            TShirt three = new TShirt("S", "Black", 625);
-            Address James = new Address("131/75", " Phutthamonthon road ,Nakhon Pathom", " 10180");
-
-            Console.WriteLine("Quantity : {0} ", jame.shoppingCart);
+            TShirt one = new TShirt(" L", "Red", 500);
+            TShirt two = new TShirt(" M", "Black", 750);
+            TShirt three = new TShirt(" S", "Black", 625);
+            Address James = new Address(" 131/75", " Phutthamonthon road ,Nakhon Pathom", " 10180");
 
             Totalcost.addList(one);
             Totalcost.addList(two);
             Totalcost.addList(three);
 
-            Console.WriteLine("Name: {0} ", jame.name);
-            Console.WriteLine("Email : {0} ", jame.email);
+            Console.WriteLine(" Name: {0} ", jame.name);
+            Console.WriteLine(" Email : {0} ", jame.email);
             Console.Write(James.street);
             Console.Write(James.city);
-            Console.WriteLine(James.zipcode);
+            Console.Write(James.zipcode);
+            Console.WriteLine("");
+            Console.WriteLine("-------------------------------------------------");
             Totalcost.getorder();
-            Console.WriteLine("Totalcost : {0}",one.price + two.price + three.price);
+            Console.WriteLine("-------------------------------------------------");
+            Console.WriteLine(" Total cost : {0}",one.price + two.price + three.price);
+            Console.WriteLine("-------------------------------------------------");
         }
     }
 }
