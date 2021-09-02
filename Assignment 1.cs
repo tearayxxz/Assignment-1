@@ -31,18 +31,20 @@ namespace ConsoleApp1
     {
         public string name;
         public string email;
-        private int ShoppingCart;
+        public int Q;
+        private ShoppingCart ShoppingCart;
         public User(string valuename,string valueemail,int Quan)
         {
             name = valuename;
             email = valueemail;
-            ShoppingCart = Quan;
+            Q = Quan;
         }
         
     }
     class ShoppingCart
     {
         public string name;
+        public float totalprice =0;
         private List<TShirt> orderTShirt;
         private List<Address> address;
         public ShoppingCart()
@@ -66,6 +68,14 @@ namespace ConsoleApp1
                 Console.WriteLine(" Color : {0}", tShirt.color);
                 Console.WriteLine(" Price : {0}", tShirt.price);
             }
+        }
+        public void Totalprices()
+        {
+            foreach (TShirt tShirt in orderTShirt)
+            {
+                totalprice += tShirt.price;
+            }
+            Console.WriteLine(" Total price : {0}",totalprice);
         }
     }
     class Program
@@ -92,7 +102,8 @@ namespace ConsoleApp1
             Console.WriteLine("-------------------------------------------------");
             Totalcost.getorder();
             Console.WriteLine("-------------------------------------------------");
-            Console.WriteLine(" Total cost : {0}",one.price + two.price + three.price);
+            Totalcost.Totalprices();
+            //Console.WriteLine(" Total cost : {0}",one.price + two.price + three.price);
             Console.WriteLine("-------------------------------------------------");
         }
     }
